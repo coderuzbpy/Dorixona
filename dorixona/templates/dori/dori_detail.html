@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ dori.make }} {{ dori.model }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .dori-img {
+            width: 100%;
+            border-radius: 10px;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+        }
+        .dori-title {
+            text-align: center;
+            font-size: 28px;
+            margin: 10px 0;
+        }
+        .price {
+            font-size: 22px;
+            color: #d9534f;
+            font-weight: bold;
+            text-align: center;
+        }
+        .details {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .details p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .description {
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 16px;
+            background: #e3e3e3;
+            border-radius: 5px;
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 150px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .back-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+      {% if dori.image %}
+    <img src="{{ dori.image.url }}" class="dori-img"
+         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400?text=No+Image';">
+    {% else %}
+        <img src="data:image/jpeg;base64,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" class="dori-img">
+    {% endif %}
+
+
+
+    <h1 class="dori-title">{{ dori.make }} {{ dori.model }}</h1>
+    <p class="price">Narx: ${{ dori.price }}</p>
+
+    <div class="details">
+        <h3>Texnik xususiyatlari:</h3>
+        <p><strong>ishlab chiqarilgan sana:</strong> {{ dori.date }}</p>
+        <p><strong>ishlab chiqaruvchi:</strong> {{ dori.company }}</p>
+        <p><strong>Narxi:</strong> {{ dori.price }}</p>
+        <p><strong>Maxsulot haqida malumot:</strong> {{ dori.description }}</p>
+        <p><strong>Oxirgi yangilanish:</strong> {{ dori.updated_at|date:"d-m-Y H:i" }}</p>
+    </div>
+
+    <div class="description">
+        <h3>Qo‘shimcha ma’lumot:</h3>
+        <p>{{ dori.description }}</p>
+    </div>
+
+    <a href="{% url 'dori-list' %}" class="back-btn">⬅️ Orqaga</a>
+    <a href="{% url 'dori-update' dori.id %}" class="back-btn">⬅️ Update</a>
+    <a href="{% url 'dori-delete' dori.id %}" >⬅️ Delete</a>
+</div>
+
+</body>
+</html>
