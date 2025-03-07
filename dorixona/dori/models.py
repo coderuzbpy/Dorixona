@@ -17,5 +17,5 @@ class Dori(models.Model):
         verbose_name = 'Dori'
 
     def __str__(self):
-        return f'{self.make} {self.model} ({self.year})'
+        return f'{self.make} {self.company} ({self.date})'
 

@@ -27,13 +27,9 @@ from .models import Dori
 
 class DoriDelete(DeleteView):
     model = Dori
-    form_class = DoriForm
     success_url = reverse_lazy('dori-list')
     template_name = 'dori/dori_delete.html'
     context_object_name = 'dori'
-
-    def get_success_url(self):
-        return reverse_lazy('dori-list', kwargs={'pk': self.object.pk})
 
 
 def contact_form(request):
@@ -63,7 +59,7 @@ class DoriCreate(View):
         form = DoriForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('dori_list')
+            return redirect('dori-list')
         return render(request, 'dori/dori_create.html', {'form': form})
 
 

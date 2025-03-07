@@ -28,7 +28,7 @@
 
 <div class="container">
     <div class="delete-container">
-        <h2>"{{ dori.make }} {{ dori.model }}" ni o‘chirishni xohlaysizmi?</h2>
+        <h2>"{{ dori.make }} {{ dori.company }}" ni o‘chirishni xohlaysizmi?</h2>
         <p>Bu amalni bekor qilib bo‘lmaydi!</p>
         <form method="post" action="{% url 'dori-delete' dori.pk %}">
             {% csrf_token %}
